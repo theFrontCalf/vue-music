@@ -57,7 +57,7 @@ export default {
         index: 0
       })
     },
-    // 音乐播放时间更新事件
+    // 4、音乐播放时间更新事件
     musicTimeUpdate () {
       store.dispatch({
         type: 'set_CurrentTime',
@@ -93,7 +93,7 @@ export default {
           index: musicLrcIndex
         })
     },
-    // 可以播放事件
+    // 2、可以播放事件
     musicCanPlay () {
       store.dispatch({
         type: 'set_MusicDuration',
@@ -104,7 +104,7 @@ export default {
         isloadstart: false
       })
     },
-    // 音乐处于播放状态
+    // 3、音乐处于播放状态
     musicOnPlaying () {
       store.commit('play')
     },
@@ -112,11 +112,11 @@ export default {
     musicOnWaiting () {
       // alert('音乐加载中')
     },
-    // 音乐处于暂停状态
+    // 5、音乐处于暂停状态，暂停后再次播放会触发3
     musicOnPause () {
       store.commit('pause')
     },
-    // 音乐加载
+    // 1、音乐加载
     loadStart () {
       store.commit({
         type: 'setMusicLoadStart',

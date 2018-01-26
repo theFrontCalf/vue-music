@@ -151,7 +151,7 @@ const audioInfo = {
 			state.audioelement.play()
 		},
 
-		// 播放下一曲
+		// 播放上一曲
 		playPrev (state) {
 			state.currentIndex --
 			const length = state.musicList.length

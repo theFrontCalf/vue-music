@@ -26,7 +26,7 @@
 						<i v-show="index === getCurrentIndex" class="playingicon icon-volume-medium"></i>
 						<span class="name">{{item.name}}</span>
 						<span class="singer"> - {{item.singer}}</span>
-						<i class="close"></i>
+						<i class="icon-close iconClose" @click.stop="deleteOne(item)"></i>
 						<div class="border-1px"></div>
 					</li>
 				</ul>
@@ -64,6 +64,10 @@
 			},
 			setPlayType () {
 				store.dispatch('set_PlayType')
+			},
+			deleteOne (e) {
+				console.log(e)
+				debugger
 			}
 		},
 		computed: {
@@ -196,6 +200,14 @@
 						background:$list_active
 					.border-1px
 						border-1px($border_1px)
+					.iconClose
+						width: 36px;
+						height: 36px;
+						text-align: center;
+						line-height: 36px;
+						float: right;
+						color:#aaa
+						
 		.mask
 			position:fixed
 			top:0

@@ -8,7 +8,7 @@
 				<i class="menu icon-list-circle"></i>
 				<div class="songheaderimg" ref="songheader"></div>
 			</div>
-			<div class="content">
+			<div class="mainContent">
 				<div class="top" ref="top">
 					<div class="songsheetdisc">
 						<div class="songsheetimg">
@@ -62,6 +62,7 @@
 			<downloadimage @hidedownloadimage="hideDownloadImg" :show-image="showDownloadImage" :sheet-data="sheetData"></downloadimage>
 			<!-- 底部固定页 -->
     		<bottom-bar></bottom-bar>
+			<menu-list></menu-list>
 		</div>
 	</transition>
 </template>
@@ -70,6 +71,8 @@
 	import bottombar from './../bottombar/bottombar.vue'
 	import songlist from './../songlist/songlist.vue'
 	import downloadimage from './../downloadimage/downloadimage.vue'
+	import menulist from '../menulist/menulist.vue'
+
 	export default {
 		data () {
 			return {
@@ -157,7 +160,8 @@
 		components: {
 			'bottom-bar': bottombar,
 			'songlist': songlist,
-			'downloadimage': downloadimage
+			'downloadimage': downloadimage,
+			'menu-list': menulist
 		},
 		mounted () {
 		}
@@ -216,7 +220,7 @@
 				white-space:nowrap
 				margin:0
 				padding:0 5px
-		.content
+		.mainContent
 			min-height: calc(100vh - 46px)
 			background:#FFF
 			box-sizing:border-box
