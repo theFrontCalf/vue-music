@@ -68,11 +68,11 @@
 			// 获取音乐封面地址
 			musicImage () {
 				return this.$store.getters.getCurrentMusic ? this.$store.getters.getCurrentMusic.img_url : ''
-			},
-			// 获取音乐播放地址
-			musicUrl () {
-				return this.$store.getters.getCurrentMusic ? this.$store.getters.getCurrentMusic.url : ''
 			}
+			// 获取音乐播放地址
+			// musicUrl () {
+			// 	return this.$store.getters.getCurrentMusic ? this.$store.getters.getCurrentMusic.url : ''
+			// }
 		},
 		mounted () {
 			// 所有的audio的 vuex 的状态信息

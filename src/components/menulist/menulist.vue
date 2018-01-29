@@ -6,6 +6,7 @@
 					{{menuList.title}}
 				</p>
 				<type-list v-for="(item, index) in menuList.content" :item="item" :index="index" :key="item.id" :name="item.name" :iconinfo="item.iconinfo" :count="item.count" :bgcolor="item.bgcolor"></type-list>
+				<div class="cancelMenulist"  @click="hideMenuList"><span>取消</span></div>
 			</div>
 		</transition>
 		<transition name="fade">
@@ -46,7 +47,8 @@
 		watch: {
 			isShow: function (newisShow) {
 				if (newisShow) {
-					this.$refs.content.style.height = `${this.$store.getters.getShowMenuInfo.content.length * 50 + 20}px`
+					// 设置一个计算后的高度
+					// this.$refs.content.style.height = `${this.$store.getters.getShowMenuInfo.content.length * 50 + 20}px`
 				}
 			}
 		},
@@ -70,7 +72,7 @@
 			bottom:0
 			left:0
 			right:0
-			padding:25px 0 46px 0
+			padding:25px 0 0px 0
 			&.sideUp-enter-to,&.sideUp-leave-to
 				transition: transform 0.3s
 			&.sideUp-enter,&.sideUp-leave-to
@@ -80,6 +82,12 @@
 				height:20px
 				line-height:20px
 				padding:0 15px
+			.cancelMenulist
+				position:relative
+				height:50px
+				text-align :center
+				line-height :50px
+				font-size:14px
 		.mask
 			position:fixed
 			top:0

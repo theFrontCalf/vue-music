@@ -18,14 +18,16 @@
 	</div>
 </template>
 <script>
-	import findrecommend from '../findrecommend/findrecommend.vue'
-	import findsheet from '../findsheet/findsheet.vue'
-	export default {
-		components: {
-			findrecommend: findrecommend,
-			findsheet: findsheet
-		}
-	}
+	// 此处为多余注册，在router.js中可直接注册使用
+	// import findrecommend from '../findrecommend/findrecommend.vue'
+	// import findsheet from '../findsheet/findsheet.vue'
+	// export default {
+	// 	components: {
+	// 		findrecommend: findrecommend,
+	// 		findsheet: findsheet
+	// 	}
+	// }
+	export default {}
 </script>
 <style lang="stylus" rel="stylesheet/stylus">
 	@import "../../common/stylus/global.styl"

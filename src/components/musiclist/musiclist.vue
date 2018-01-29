@@ -67,7 +67,6 @@
 			},
 			deleteOne (e) {
 				console.log(e)
-				debugger
 			}
 		},
 		computed: {

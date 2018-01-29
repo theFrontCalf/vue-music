@@ -25,9 +25,7 @@
         </div>
         <findsheettitle></findsheettitle>
         <div class="recommend-list">
-        	<findsheetlist v-if="reconmmend" v-for="(sheet, sheetindex) in reconmmend.findmusic.reconmmend.recommendMinSheets" :key="sheet.id" :imagesrc="sheet.info[0].img_url" :showtoprighttips="sheet.showtoptips" :listpadding="sheet.padding" :toprighticonclass="sheet.toptipsclass" :toprighttitle="sheet.listencount" :showbottomtips="sheet.showbottomtips" :bottomtips="sheet.bottomtips" :showbottomtitle="sheet.showbottomtitle" :bottomtitle="sheet.bottomtitle" :listwidth="sheet.listwidth"></findsheetlist @click.stop="showSongSheet(list)">
-        <!-- 	<findsheetlist imagesrc="http://oiq8j9er1.bkt.clouddn.com/music_%E9%82%A3%E4%BA%9B%E4%BD%A0%E5%BE%88%E5%86%92%E9%99%A9%E7%9A%84%E6%A2%A6.jpg" showtoprighttips="true" listpadding="0 1px 1px 1px" toprighticonclass="icon-music" toprighttitle="1200" showbottomtips="true" bottomtips="这是测试的bottom" showbottomtitle="true" bottomtitle="这是底部的内容" listwidth="33.33333333%"></findsheetlist>
-        	<findsheetlist imagesrc="http://oiq8j9er1.bkt.clouddn.com/music_%E9%82%A3%E4%BA%9B%E4%BD%A0%E5%BE%88%E5%86%92%E9%99%A9%E7%9A%84%E6%A2%A6.jpg" showtoprighttips="true" listpadding="0 0 1px 1px" toprighticonclass="icon-music" toprighttitle="1200" showbottomtips="true" bottomtips="这是测试的bottom" showbottomtitle="true" bottomtitle="这是底部的内容" listwidth="33.33333333%"></findsheetlist> -->
+        	<findsheetlist v-if="reconmmend" v-for="(sheet, sheetindex) in reconmmend.findmusic.reconmmend.recommendMinSheets" :key="sheet.id" :imagesrc="sheet.info[0].img_url" :showtoprighttips="sheet.showtoptips" :listpadding="sheet.padding" :toprighticonclass="sheet.toptipsclass" :toprighttitle="sheet.listencount" :showbottomtips="sheet.showbottomtips" :bottomtips="sheet.bottomtips" :showbottomtitle="sheet.showbottomtitle" :bottomtitle="sheet.bottomtitle" :listwidth="sheet.listwidth"  @click.native="showSongSheet(sheet)"></findsheetlist>
         </div>
 	</div>
 </template>
@@ -44,23 +42,24 @@
 			swiperOption: {
 				// 是一个组件自有属性，如果notNextTick设置为true，组件则不会通过NextTick来实例化swiper，也就意味着你可以在第一时间获取到swiper对象，假如你需要刚加载遍使用获取swiper对象来做什么事，那么这个属性一定要是true
 				autoplay: 1113000,
-				grabCursor: true,
-				setWrapperSize: true,
-				autoHeight: true,
+				// grabCursor: true,
+				setWrapperSize: true,	// 支持flex布局
+				autoHeight: true,	// 会随着slide的高度变化
 				pagination: '.swiper-pagination',
 				paginationClickable: true,
-				mousewheelControl: true,
-				autoplayDisableOnInteraction: false,
-				observeParents: true,
-				loop: true,
+				mousewheelControl: true,	// 开启鼠标滚动切换
+				autoplayDisableOnInteraction: false,  // 用户操作后，不关闭自动播放
+				observeParents: true,	// 父元素变还swiper更新
+				loop: true,	// 开启循环播放
 				// lazyLoading: true,
 				// lazyLoadingOnTransitionStart: true,
-				onSlideChangeEnd: swiper => {
+				onSlideChangeEnd: swiper => {	// 每一个slider切换结束触发
 					// 这个位置放swiper的回调方法
 					this.page = swiper.realIndex + 1
 					this.index = swiper.realIndex
 				},
 				onClick: swiper => {
+					// debugger
 					const index = swiper.activeIndex
 					// alert(swiper.slides[index].getAttribute('songlist'))
 					store.commit({
@@ -81,6 +80,7 @@
 	    },
 	    computed: {
 			reconmmend () {
+				// console.log(store.getters.getAllInfo)
 				return store.getters.getAllInfo
 			},
 			// ...mapGetters({

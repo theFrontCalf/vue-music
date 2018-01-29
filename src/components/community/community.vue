@@ -1,6 +1,8 @@
 <template>
 	<div class="myCommunity">
 		尽情期待!Community
+		<div contenteditable="true" style="width:100px;height40px;border:1px solid #ccc;">
+    </div>
 	</div>
 </template>
 <script>
