@@ -86,7 +86,9 @@ const audioInfo = {
 		// play设置
 		play (state) {
 			state.playing = true
-			state.audioelement.play()
+			state.audioelement.onloadeddata = function () {
+				this.play()
+			}
 		},
 		// 暂停设置
 		pause (state) {
@@ -99,7 +101,9 @@ const audioInfo = {
 				state.audioelement.pause()
 			} else {
 				state.playing = true
-				state.audioelement.play()
+				state.audioelement.onloadeddata = function () {
+				this.play()
+			}
 			}
 		},
 		// 开关显示底部列表
@@ -148,7 +152,9 @@ const audioInfo = {
 			state.audioelement.setAttribute('src', state.musicList[state.currentIndex].url)
 			state.playing = true
 			state.audioelement.load()
-			state.audioelement.play()
+			state.audioelement.onloadeddata = function () {
+				this.play()
+			}
 		},
 
 		// 播放上一曲
@@ -161,7 +167,9 @@ const audioInfo = {
 			state.audioelement.setAttribute('src', state.musicList[state.currentIndex].url)
 			state.playing = true
 			state.audioelement.load()
-			state.audioelement.play()
+			state.audioelement.onloadeddata = function () {
+				this.play()
+			}
 		},
 
 		// 设置当前的播放索引
@@ -169,8 +177,10 @@ const audioInfo = {
 			state.currentIndex = obj.index
 			state.audioelement.setAttribute('src', state.musicList[state.currentIndex].url)
 			state.playing = true
-			state.audioelement.load()
-			state.audioelement.play()
+			// state.audioelement.load()
+			state.audioelement.onloadeddata = function () {
+				this.play()
+			}
 		},
 
 		// 设置音乐结束自动播放播放类型的歌曲
@@ -185,12 +195,16 @@ const audioInfo = {
 				state.audioelement.setAttribute('src', state.musicList[state.currentIndex].url)
 				state.playing = true
 				state.audioelement.load()
-				state.audioelement.play()
+				state.audioelement.onloadeddata = function () {
+				this.play()
+			}
 			}
 			if (type === 2) {
 				state.audioelement.currentTime = 0
 				state.playing = true
-				state.audioelement.play()
+				state.audioelement.onloadeddata = function () {
+				this.play()
+			}
 			}
 			if (type === 3) {
 				const length = state.musicList.length
@@ -198,7 +212,9 @@ const audioInfo = {
 				state.audioelement.setAttribute('src', state.musicList[state.currentIndex].url)
 				state.playing = true
 				state.audioelement.load()
-				state.audioelement.play()
+				state.audioelement.onloadeddata = function () {
+				this.play()
+			}
 			}
 		},
 		setCurrentTime (state, obj) {

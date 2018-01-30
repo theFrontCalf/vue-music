@@ -151,9 +151,10 @@
 					this.$refs.top.style.backgroundImage = `url(${img.info[0].img_url})`
 					this.$refs.top.style.backgroundSize = `5800%`
 					this.$refs.top.style.backgroundPosition = `center center`
-					this.$refs.songheader.style.backgroundImage = `url(${img.info[0].img_url})`
-					this.$refs.songheader.style.backgroundSize = `5800%`
-					this.$refs.songheader.style.backgroundPosition = `center center`
+					// 多余的设置，因songheader不在文档流，fixed定位
+					// this.$refs.songheader.style.backgroundImage = `url(${img.info[0].img_url})`
+					// this.$refs.songheader.style.backgroundSize = `200%`
+					// this.$refs.songheader.style.backgroundPosition = `center center`
 				}
 			}
 		},

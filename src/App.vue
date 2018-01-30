@@ -140,7 +140,7 @@ export default {
       // data.user的信息赋值给info  再通过组件的数据传递传给sideBar
       this.info = res.data.user
       // 把所有的音乐数据给vuex的musicAllList
-      store.dispatch('set_MusicAllList', res.data.music)
+      store.commit('setMusicAllList', res.data.music)
       // 所有的数据存起来  包括音乐个人信息 等等
       store.dispatch('set_AllInfo', res.data)
       // 设置音乐的地址  初始化 根据vuex的currentIndex来决定
